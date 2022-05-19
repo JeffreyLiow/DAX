@@ -1,0 +1,5 @@
+CUSTLastDaySales = CALCULATE(sum('dwh.stg_crmz_cust_all_count'[CUSTCOUNT]),DATEADD('dwh.stg_crmz_cust_all_count'[CUSTDATE],-1,DAY))
+
+CUSTNormalSales = CALCULATE(sum('dwh.stg_crmz_cust_all_count'[CUSTCOUNT]),DATEADD('dwh.stg_crmz_cust_all_count'[CUSTDATE],0,DAY))
+
+CUSTLastVsNormal = 'dwh.stg_crmz_cust_all_count'[CUSTNormalSales]-'dwh.stg_crmz_cust_all_count'[CUSTLastDaySales]
